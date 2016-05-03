@@ -6459,7 +6459,7 @@ msgstr ""
 #: C:\Program Files\Apache Software
 #: Foundation\Apache2.2\htdocs\Katak/include/user/thankyou.inc.php:18
 msgid ""
-"Thank you for contacting us.<br>A support ticket request has been created "
+"Thank you for contacting us.<br><br>A Support Ticket (<b>%s</b>) request has been created "
 "and a representative will be getting back to you shortly if necessary."
 msgstr ""
 
@@ -6481,6 +6481,11 @@ msgstr ""
 #: C:\Program Files\Apache Software
 #: Foundation\Apache2.2\htdocs\Katak/include/user/thankyou.inc.php:28
 msgid "Support Team"
+msgstr "MyEDC Support"
+
+#: C:\Program Files\Apache Software
+#: Foundation\Apache2.2\htdocs\Katak/include/user/thankyou.inc.php:28
+msgid "Thank You"
 msgstr ""
 
 #: C:\Program Files\Apache Software

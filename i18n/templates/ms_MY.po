@@ -21,8 +21,8 @@ msgstr ""
 
 #: C:\Program Files\Apache Software
 #: Foundation\Apache2.2\htdocs\Katak/index.php:22
-msgid "Welcome to EDC Helpdesk-Support Center"
-msgstr "Selamat Datang ke Sistem Meja Bantuan EDC"
+msgid "Welcome to Helpdesk System %s"
+msgstr "Selamat Datang ke Sistem Meja Bantuan %s"
 
 #: C:\Program Files\Apache Software
 #: Foundation\Apache2.2\htdocs\Katak/index.php:24
@@ -6511,9 +6511,9 @@ msgstr "sila masukkan teks seperti imej."
 #: C:\Program Files\Apache Software
 #: Foundation\Apache2.2\htdocs\Katak/include/user/thankyou.inc.php:18
 msgid ""
-"Thank you for contacting us.<br>A support ticket request has been created "
+"Thank you for contacting us.<br><br>A Support Ticket (<b>%s</b>) request has been created "
 "and a representative will be getting back to you shortly if necessary."
-msgstr ""
+msgstr "Terima kasih kerana telah menghubungi kami .<br><br>Nombor Tiket Permohonan Bantuan (<b>%s</b>) telah diwujudkan dan wakil kami akan menghubungi tuan dalam masa terdekat."
 
 #: C:\Program Files\Apache Software
 #: Foundation\Apache2.2\htdocs\Katak/include/user/thankyou.inc.php:22
@@ -6521,19 +6521,24 @@ msgstr ""
 msgid ""
 "An email with the ticket number has been sent to <b>%s</b>.You'll need the "
 "ticket number along with your email to view status and progress online."
-msgstr ""
+msgstr "Kami telah emel ke <b>%s</b> untuk rujukan anda. Nombor rujukan Tiket Permohonan Bantuan ini dan alamat emel tuan adalah diperlukan untuk tuan menyemak status dan kemajuan permohonan tuan."
 
 #: C:\Program Files\Apache Software
 #: Foundation\Apache2.2\htdocs\Katak/include/user/thankyou.inc.php:25
 msgid ""
 "If you wish to send additional comments or information regarding same issue, "
 "please follow the instructions on the email."
-msgstr ""
+msgstr "Sila ikut arahan di emel tersebut sekiranya tuan ingin menambah maklumat atau komen mengenai isu yang sama."
 
 #: C:\Program Files\Apache Software
 #: Foundation\Apache2.2\htdocs\Katak/include/user/thankyou.inc.php:28
 msgid "Support Team"
-msgstr ""
+msgstr "Meja Bantuan MyEDC"
+
+#: C:\Program Files\Apache Software
+#: Foundation\Apache2.2\htdocs\Katak/include/user/thankyou.inc.php:28
+msgid "Thank You"
+msgstr "Terima Kasih"
 
 #: C:\Program Files\Apache Software
 #: Foundation\Apache2.2\htdocs\Katak/include/user/tickets.inc.php:62

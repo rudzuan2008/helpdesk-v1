@@ -83,25 +83,28 @@ $info=($_POST && $errors)?Format::input($_POST):array(); //on error...use the po
             $canned=db_query($sql);
             if($canned && db_num_rows($canned)) {
             ?>
-            <?= _('Std. reply:') ?>&nbsp;
+            <?= _('Std. reply:') ?>&nbsp;<br />
               <select id="canned" name="canned"
                 onChange="getCannedResponse(this.options[this.selectedIndex].value,this.form,'issue');this.selectedIndex='0';" >
                   <option value="0" selected="selected"><?= _('Select a standard reply/issue') ?></option>
                 <?php while(list($cannedId,$title)=db_fetch_row($canned)) { ?>
                 <option value="<?=$cannedId?>" ><?=Format::htmlchars($title)?></option>
                 <?php } ?>
-              </select>&nbsp;&nbsp;&nbsp;<label><input type='checkbox' value='1' name='append' checked /><?= _('Append') ?></label>
+              </select>&nbsp;&nbsp;&nbsp;<label><input type='checkbox' value='1' name='append' checked /><?= _('Append') ?></label><br />
             <?php } ?>
             <textarea name="issue" cols="55" rows="8" wrap="soft"><?=$info['issue']?></textarea></td>
     </tr>
-    <?php if($cfg->canUploadFiles()) { ?>
+    <?php if(($cfg->allowOnlineAttachments() && !$cfg->allowAttachmentsOnlogin())  
+                || ($cfg->allowAttachmentsOnlogin() && ($thisuser && $thisuser->isValid()))){
+    	if($cfg->canUploadFiles()) { ?>
     <tr>
         <td><?= _('Attachment:') ?></td>
         <td>
             <input type="file" name="attachment[]" multiple />&nbsp;<span class="warning">(max <?=$cfg->getMaxFileSize()?> bytes)</span><font class="error">&nbsp;<?=$errors['attachment']?></font>
         </td>
     </tr>
-    <?php } ?>
+    <?php }
+    } ?>
     <tr>
         <td><br /><?= _('Internal Note:') ?></td>
         <td>

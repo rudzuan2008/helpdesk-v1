@@ -14,7 +14,7 @@
     $Id: $
 **********************************************************************/
 require('user.inc.php');
-//require_once(INCLUDE_DIR.'class.ticket.php');
+require_once(INCLUDE_DIR.'class.ticket.php');
 define('SOURCE','Web'); //Ticket source.
 $errors=array();
 $msgid=null;
@@ -25,12 +25,18 @@ if($_POST):
     $_POST['deptId']=$_POST['emailId']=0; //Just Making sure we don't accept crap...only topicId is expected.
 
     //Ticket::create...checks for errors..
-    if(($ticket=Ticket::create($_POST,$errors,SOURCE))){
-    	$msgid=$ticket->getLastMsgId();
-    	$ticket_id=$ticket->getId();
-    	$msg=_('Support ticket request created');
-    	//echo $msg;
-    	$success=true;
+    if(($ticket=Ticket::createMobile($_POST,$errors,SOURCE))){
+    	if($ticket) {
+	    	$msgid=$ticket->getLastMsgId();
+	    	$ticket_id=$ticket->getId();
+	    	$ticketID=$ticket->getExtId();
+	    	$msg=_('Support ticket request created');
+	    	//echo $msg;
+    		$success=true;
+    	}else{
+    		$msg="checking";
+    		$success=false;
+    	}
     }else{
     	
     	// Impossible to create the ticket: display error message
@@ -43,6 +49,7 @@ if($_POST):
     
     $obj = new stdClass;
     $obj->msgid=$msgid;
+    $obj->ticketID=$ticketID;
     $obj->ticket_id=$ticket_id;
 	$obj->success = $success;
 	$obj->message = $msg;

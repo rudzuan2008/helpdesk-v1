@@ -295,14 +295,17 @@ if($notes=db_num_rows($resp)){
                     <div>
                         <textarea name="response" id="response" cols="90" rows="9" wrap="soft" style="width:100%"><?=$info['response']?></textarea>
                     </div>
-                    <?php if($cfg->canUploadFiles()){ //TODO: may be allow anyways and simply email out attachment?? ?>
+                    <?php if(($cfg->allowOnlineAttachments() && !$cfg->allowAttachmentsOnlogin())  
+                					|| ($cfg->allowAttachmentsOnlogin() && ($thisuser && $thisuser->isValid()))){
+                		if($cfg->canUploadFiles()){ //TODO: may be allow anyways and simply email out attachment?? ?>
                     <div style="margin-top: 3px;">
                         <label for="attachment" ><?= _('Attach File:') ?></label>
                         <input type="file" name="attachment[]" size=30px value="<?=$info['attachment']?>" multiple /> 
                         &nbsp;<span class="warning">(max <?=$cfg->getMaxFileSize()?> bytes)</span>
                         <font class="error">&nbsp;<?=$errors['attachment']?></font>
                     </div>
-                    <?php }?>
+                    <?php }
+                    	}?>
                     <?php
                     if($cfg->notifyONNewResponse()) { // A notice will be sent to the user/client? If no, hide the signature.
                      $appendStaffSig=$thisuser->appendMySignature();

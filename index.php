@@ -16,10 +16,11 @@
 require('user.inc.php');
 
 require(USERINC_DIR . 'header.inc.php');
+$entity = 'MyEDC of Johor';
 ?>
 
   <div id='landingpage'>
-    <div id='title'><?= _('Welcome to EDC Helpdesk-Support Center') ?></div>
+    <div id='title'><?= sprintf(_('Welcome to Helpdesk System %s'), $entity) ?></div>
     <div id="subtitle">  
 <!--       <?= _('In order to better support you, we utilize a support ticket system. Every support request is assigned a unique ticket number which you can use to track the progress online. For your reference we provide complete history of all your support requests.') ?> -->
 <!--       <?= _('A valid email address is required to access the support system.') ?> -->
